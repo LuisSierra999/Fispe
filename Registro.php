@@ -13,7 +13,9 @@
   <header>
     <div class="wrapper">
         <div class="logo">Registro</div>
-        <img src="img/logo.png">
+            <a href="index.php">
+              <img src="img/logo.png" alt="logo">
+            </a>
         <nav>
             <a href="Registro.php">Regístrate Aquí</a>
             <a href="inicio.php">Inicio de Sesión</a>
@@ -71,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Verificar si las contraseñas coinciden
   if ($_POST['password'] !== $_POST['confirm_password']) {
-      die("Las contraseñas no coinciden.");
+      die("<div class='sms'>La Contraseña Coincide </div>");
   }
 
  // Insertar en la base de datos
