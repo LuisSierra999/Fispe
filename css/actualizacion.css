@@ -82,6 +82,18 @@ form {
     margin: 50px auto;
 }
 
+p {
+    text-align: center;
+    color: #ffffff;
+    background-color: #65730D;
+    border-top-left-radius: 3px;
+    margin: 100px auto 100px;
+    font-size: 25px;
+    width: 300px;
+    border-top-left-radius: 3px;
+}
+
+
 input, text {
     outline: none;
     color: #040503;

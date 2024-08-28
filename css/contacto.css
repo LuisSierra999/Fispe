@@ -10,7 +10,7 @@ header {
     width: 100%;
     background-color: #65730D;
     margin-bottom: 20px;
-    position: fixed;
+    position: sticky;
     left: 0;
     top: 0;
     right: 0;
@@ -52,7 +52,7 @@ header nav a:hover {
 .label {
     display: flex;
     justify-content: center;
-    padding-top: 120px;
+    padding-top: 10px;
 }
 form {
     border-radius: 5px;

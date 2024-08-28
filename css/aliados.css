@@ -5,8 +5,8 @@ header {
     width: 100%;
     overflow: hidden;
     background-color: #65730D;
-    margin-bottom: 200px;
-    position: fixed;
+    margin-bottom: 10px;
+    position: sticky;
 }
 .wrapper {
     width: 90%;
@@ -49,7 +49,7 @@ header nav a:hover {
     width: 90%;
 }
 .contenido h1 {
-    padding-top: 120px;
+    padding-top: 20px;
     margin-bottom: 16px;
     font-size: 30px;
 }

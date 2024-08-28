@@ -10,16 +10,19 @@
 </head>
 
 <body>
-    <header>
+<header>
         <div class="wrapper">
-            <div class="logo">Aliados en Salud</div>
+            <div class="logo">Bienvenidos a FISPE</div>
             <img src="img/logo.png" alt="Logo Fispe" width="100"/> 
             <nav>
                 <a href="Bienvenida.php">Bienvenida</a>
-                <a href="quienessomos.php">¿Quiénes Somos?</a>
+                <a href="quienesSomos.php">¿Quiénes Somos?</a>
                 <a href="aliados.php">Aliados en Salud</a>
                 <a href="fispe.php">Ficha de Seguimiento</a>
                 <a href="contacto.php">Contacto</a>
+                <a href="actualizacion.php">Actualizar Cuenta</a>
+                <a href="salir.php">Cerrar Cesion</a>
+                
             </nav>
         </div>
     </header>

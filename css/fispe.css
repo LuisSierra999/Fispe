@@ -44,6 +44,15 @@ header nav a:hover {
     border-radius: 50px;
 }
 /*contenido*/
+
+p {
+    text-align: center;
+    color: #ffffff;
+    background-color: #65730D;
+    border-top-left-radius: 3px;
+}
+
+
 .contenido h1 {
     padding-top: 120px;
     margin-bottom: 16px;
