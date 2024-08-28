@@ -15,33 +15,35 @@ header {
     overflow: hidden;
   
 }
-header .logo{
-    color:#f2f2f2;
-    font-size: 33px;
-    line-height: 100px;
+
+header .logo {
+    color: #f2f2f2;
+    font-size: 30px;
+    line-height: 30px;
     float: left;
-    
+    margin-top: 5px;
 }
 
+header nav {
+    float: right;
+    line-height: 70px;
+    margin: 0px;
+    height: 0 px;
 
+}
 
 
 header div img {
     border-radius: 50px;
     width: 100px;
-    float: left;
-}
-header nav {
     float: right;
-    line-height: 100px;
-   
-   
 }
+
 header nav a {
     display: inline-block;
     color:#fff;
     text-decoration: none;
-    padding:10px 20px;
+    padding:10px 15px;
     line-height: normal;
     font-size: 17.5px;
     font-weight: bold;
@@ -52,7 +54,7 @@ header nav a:hover {
 }
 /*Contenido*/
 .contenido h1 {
-    padding-top: 120px; // espaciado mejor visualizacion y no perder informacion solape
+    padding-top: 20px; // espaciado mejor visualizacion y no perder informacion solape
     margin-bottom: 16px; // espaciado eParrafo y h1
     font-size: 30px; 
 }

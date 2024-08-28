@@ -14,21 +14,27 @@ header {
     margin: auto;
     overflow: hidden;
 }
-header .logo{
-    color:#f2f2f2;
-    font-size: 60px;
-    line-height: 100px;
+header .logo {
+    color: #f2f2f2;
+    font-size: 30px;
+    line-height: 30px;
     float: left;
+    margin-top: 5px;
+}
+
+header nav {
+    float: right;
+    line-height: 70px;
+    margin: 0px;
+    height: 0 px;
+
 }
 header div img {
     border-radius: 50px;
     width: 100px;
     float: right;
     display: inline-block;
-}
-header nav {
-    float: right;
-    line-height: 100px;
+
 }
 header nav a {
     display: inline-block;
