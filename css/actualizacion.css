@@ -1,0 +1,212 @@
+/* Estilo general */
+body {
+    font-family: "Arial Narrow";
+    font-size: 1.0rem;
+    line-height: 1.3em;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    background-color: #65730D;
+    margin-bottom: 20px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+.wrapper {
+    width: 90%;
+    max-width: 1500px;
+    margin: 0px;
+    overflow: hidden;
+}
+header .logo {
+    color: #f2f2f2;
+    font-size: 30px;
+    line-height: 100px;
+    float: left;
+}
+header div img {
+    border-radius: 50px;
+    width: 100px;
+    float: right;
+}
+header nav {
+    float: right;
+    line-height: 100px;
+    margin: auto;
+    height: 10 px;
+
+}
+header nav a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: normal;
+    font-size: 15px;
+    font-weight: bold;
+   
+}
+header nav a:hover {
+    background: #BACD47;
+    border-radius: 50px;
+}
+
+.contenido {
+    display: flex;
+    padding-top: 120px;
+    justify-content: center;
+}
+
+.contenido figure img {
+    float: right;
+    border-radius: 250px;
+    width: 300px;
+    height: 180px;
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo del formulario de actualización */
+form {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #BACD47;
+    margin: 10px 0;
+    width: 250px;
+    margin: 50px auto;
+}
+
+input, text {
+    outline: none;
+    color: #65730D;
+    background-color: #eaecd9;
+    border-radius: 5px;
+    border: solid 3px #65730D;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.inline {
+    width: unset;
+}
+
+.field {
+    border: solid 3px #65730D;
+    border-radius: 5px;
+}
+
+.field:focus {
+    border-color: #BACD47;
+}
+
+.submit {
+    background-color: #65730D;
+    color: #65730D;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.submit:hover {
+    background-color: #BACD47;
+}
+
+.sms {
+    background-color: #65730D;
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    font-size: 18px;
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+}
+
+/* Pie de Página */
+.pie_pagina {
+    width: 100%;
+    background-color: #65730D;
+}
+
+.pie_pagina .grupo_1 {
+    width: 100%;
+    max-width: 1200px;
+    height: 100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 15px 0px;
+}
+
+.pie_pagina .grupo_1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie_pagina .grupo_1 .box figure img {
+    width: 140px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.pie_pagina .grupo_1 .box h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.pie_pagina .grupo_1 .box a {
+    color: #efefef;
+    margin-bottom: 10px;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.pie_pagina .grupo_1 .box a:hover {
+    background: #BACD47;
+    border-radius: 50px;
+}
+
+.pie_pagina .grupo_1 .red_social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #65730D;
+    text-align: center;
+}
+
+.pie_pagina .grupo_2 {
+    background-color: #BACD47;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+    .pie_pagina .grupo_1 {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    }
+}
