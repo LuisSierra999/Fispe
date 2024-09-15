@@ -62,7 +62,7 @@ include 'Conexion.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Recibir datos del formulario
+  // Recibir datos iniciales
   $Nombre = $conn->real_escape_string($_POST['Nombre']);
   $Apellido = $conn->real_escape_string($_POST['Apellido']);
   $email = $conn->real_escape_string($_POST['email']);
@@ -71,53 +71,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $password = $conn->real_escape_string($_POST['password']); 
 
 
-  // Verificar si las contraseñas coinciden
+  // Compara que la contraseña ingresada = a la contraseña confirmada
   if ($_POST['password'] !== $_POST['confirm_password']) {
-      die("<div class='sms'>La Contraseña Coincide </div>");
+      die("<div class='sms'>La Contraseña No Coincide </div>");
   }
 
- // Insertar en la base de datos
+ // Ingresa el registro en la DB
  $sql = "INSERT INTO users (Nombre, Apellido, email, Edad, Genero, password) 
  VALUES ('$Nombre', '$Apellido', '$email', '$Edad', '$Genero', '$password')";
 
 if ($conn->query($sql) === TRUE) {
-echo "<div class='sms'>Registro exitoso </div>";
+echo "<div class='sms'>Registro exitoso </div>"; // Sms Exitoso
 } else {
-echo "Error: " . $sql . "<br>" . $conn->error;
+echo "Error: " . $sql . "<br>" . $conn->error; //// Sms Error
 }
 
-// Cerrar conexión
+// Cierra la conexión
 $conn->close();
 }
 ?>
 
 
   <!--Pie de Página-->
-  <footer class="pie_pagina">
-    <div class="grupo_1">
-        <div class="box">
-            <figure>
-                <img src="img/logo.png" alt="logo">
-            </figure>
-        </div>
-        <div class="box">
-            <h2>SOBRE NOSOTROS</h2>
-              <a href="doc/terminosycondiciones.pdf">Términos y Condiciones</a><br>
-              <a href="doc/privacidad.pdf">Políticas de Privacidad y Almacenamiento de Datos</a>
-        </div>
-        <div class="box">
-            <h2>SÍGUENOS</h2>
-            <div class="red_social">
-                <a href="#"class="fa fa-facebook"></a>
-                <a href="#"class="fa fa-instagram"></a>
-                <a href="#"class="fa fa-youtube"></a>
-            </div>
-        </div>
-    </div>
-    <div class="grupo_2">
-        <small>&copy;2024 <b>-Fispe-</b>Todos los Derechos Reservados.</small>
-    </div>
-</footer>
+           <?php
+               include "Footer/footer.php";
+
+           ?>
 </body>
 
 </html>

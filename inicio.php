@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Si ya hay una sesión iniciada, redirige a la página de bienvenida
+// redirige a la página de bienvenida, si hay Conexion 
 if (isset($_SESSION["email"])) {
     header("Location: Bienvenida.php");
     exit();
 }
 
-require "Conexion.php";
+require "Conexion.php"; // conexion DB
 
 $message = "";
 
@@ -16,7 +16,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     $stmt = $conn->prepare("SELECT email, password FROM users WHERE email = ?");
     
     // Vincular parámetros
-    $stmt->bind_param("s", $_POST["email"]); // "s" indica que es un parámetro de tipo string
+    $stmt->bind_param("s", $_POST["email"]); // "s" dice qie es un String
 
     // Ejecutar la consulta
     $stmt->execute();
@@ -25,12 +25,12 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    if ($user && $_POST["password"] === $user["password"]) {  // Comparar contraseñas directamente
+    if ($user && $_POST["password"] === $user["password"]) {  // Comparar contraseñas
         $_SESSION["email"] = $user["email"];  // Asignar el email del usuario a la sesión
         header("Location: Bienvenida.php");  // Redirigir a la página de bienvenida
         exit();
     } else {
-        $message = "Por Favor Valida los Datos Ingresados";
+        $message = "Por Favor Valida los Datos Ingresados"; // Sms Error
     }
 }
 ?>
@@ -80,7 +80,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
             </form>
 
             
-            <!-- Mostrar el mensaje de error -->
+             <!-- Imprime en Pantalla el mensaje de error -->
             <?php if (!empty($message)): ?>
               <div class="sms">
                 <p><?php echo $message; ?></p>
@@ -90,30 +90,11 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         </div>
     </main>
 
-    <footer class="pie_pagina">
-        <div class="grupo_1">
-            <div class="box">
-                <figure>
-                    <img src="img/logo.png" alt="logo">
-                </figure>
-            </div>
-            <div class="box">
-                <h2>SOBRE NOSOTROS</h2>
-                <a href="doc/terminosycondiciones.pdf">Términos y Condiciones</a><br>
-                <a href="doc/privacidad.pdf">Políticas de Privacidad y Almacenamiento de Datos</a>
-            </div>
-            <div class="box">
-                <h2>SÍGUENOS</h2>
-                <div class="red_social">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-youtube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="grupo_2">
-            <small>&copy;2024 <b>-Fispe-</b> Todos los Derechos Reservados.</small>
-        </div>
-    </footer>
+    <!-- inicio del footer -->
+
+    <?php
+               include "Footer/footer.php";
+
+           ?>
 </body>
 </html>

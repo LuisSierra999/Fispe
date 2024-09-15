@@ -31,7 +31,7 @@ header .logo {
 
 header nav {
     float: right;
-    line-height: 70px;
+    line-height: 50px;
     margin: 0px;
     height: 0 px;
 
@@ -46,7 +46,7 @@ header nav a {
     display: inline-block;
     color:#fff;
     text-decoration: none;
-    padding:10px 20px;
+    padding:10px 15px;
     line-height: normal;
     font-size: 17.5px;
     font-weight: bold;
