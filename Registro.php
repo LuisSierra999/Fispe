@@ -58,36 +58,52 @@
 
     <?php
 
-include 'Conexion.php';
-
+include 'Conexion.php'; // Asegúrate de que 'Conexion.php' esté configurado para usar PDO
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Recibir datos iniciales
-  $Nombre = $conn->real_escape_string($_POST['Nombre']);
-  $Apellido = $conn->real_escape_string($_POST['Apellido']);
-  $email = $conn->real_escape_string($_POST['email']);
-  $Edad = $conn->real_escape_string($_POST['Edad']);
-  $Genero = $conn->real_escape_string($_POST['Genero']);
-  $password = $conn->real_escape_string($_POST['password']); 
+    // Recibir datos iniciales
+    $Nombre = $_POST['Nombre'];
+    $Apellido = $_POST['Apellido'];
+    $email = $_POST['email'];
+    $Edad = $_POST['Edad'];
+    $Genero = $_POST['Genero'];
+    $password = $_POST['password']; 
 
+    // Compara que la contraseña ingresada = a la contraseña confirmada
+    if ($password !== $_POST['confirm_password']) {
+        die("<div class='sms'>La Contraseña No Coincide</div>");
+    }
 
-  // Compara que la contraseña ingresada = a la contraseña confirmada
-  if ($_POST['password'] !== $_POST['confirm_password']) {
-      die("<div class='sms'>La Contraseña No Coincide </div>");
-  }
+    // Encripta la contraseña antes de almacenarla
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
- // Ingresa el registro en la DB
- $sql = "INSERT INTO users (Nombre, Apellido, email, Edad, Genero, password) 
- VALUES ('$Nombre', '$Apellido', '$email', '$Edad', '$Genero', '$password')";
+    // Ingresa el registro en la DB usando PDO
+    $sql = "INSERT INTO users (Nombre, Apellido, email, Edad, Genero, password) 
+            VALUES (:Nombre, :Apellido, :email, :Edad, :Genero, :password)";
 
-if ($conn->query($sql) === TRUE) {
-echo "<div class='sms'>Registro exitoso </div>"; // Sms Exitoso
-} else {
-echo "Error: " . $sql . "<br>" . $conn->error; //// Sms Error
-}
+    try {
+        $stmt = $conn->prepare($sql);
 
-// Cierra la conexión
-$conn->close();
+        // Vincular los parámetros con los valores recibidos del formulario
+        $stmt->bindParam(':Nombre', $Nombre);
+        $stmt->bindParam(':Apellido', $Apellido);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':Edad', $Edad);
+        $stmt->bindParam(':Genero', $Genero);
+        $stmt->bindParam(':password', $hashed_password);
+
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            echo "<div class='sms'>Registro exitoso</div>"; // Mensaje exitoso
+        } else {
+            echo "<div class='sms'>Error al registrar el usuario</div>"; // Mensaje de error
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage(); // Mensaje de error en caso de excepción
+    }
+
+    // Cierra la conexión
+    $conn = null;
 }
 ?>
 

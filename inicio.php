@@ -1,36 +1,36 @@
 <?php
 session_start();
 
-// redirige a la página de bienvenida, si hay Conexion 
+// Redirige a la página de bienvenida si ya hay una sesión iniciada
 if (isset($_SESSION["email"])) {
     header("Location: Bienvenida.php");
     exit();
 }
 
-require "Conexion.php"; // conexion DB
+require "Conexion.php"; // Conexión a la DB usando PDO
 
 $message = "";
 
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-    // Preparar la consulta SQL utilizando placeholders con mysqli
-    $stmt = $conn->prepare("SELECT email, password FROM users WHERE email = ?");
-    
-    // Vincular parámetros
-    $stmt->bind_param("s", $_POST["email"]); // "s" dice qie es un String
+    // Preparar la consulta SQL utilizando placeholders con PDO
+    $stmt = $conn->prepare("SELECT email, password FROM users WHERE email = :email");
+
+    // Vincular el parámetro de email
+    $stmt->bindParam(':email', $_POST["email"]);
 
     // Ejecutar la consulta
     $stmt->execute();
 
     // Obtener el resultado
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $_POST["password"] === $user["password"]) {  // Comparar contraseñas
+    // Verificar si el usuario existe y si la contraseña es válida
+    if ($user && password_verify($_POST["password"], $user["password"])) {
         $_SESSION["email"] = $user["email"];  // Asignar el email del usuario a la sesión
         header("Location: Bienvenida.php");  // Redirigir a la página de bienvenida
         exit();
     } else {
-        $message = "Por Favor Valida los Datos Ingresados"; // Sms Error
+        $message = "Por Favor Valida los Datos Ingresados"; // Mensaje de error
     }
 }
 ?>

@@ -4,12 +4,16 @@ $username = "root";    // Usuario DB
 $password = ""; // Contraseña DB
 $dbname = "fispe"; // Nombre DB
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+try {
+    // Crear conexión PDO
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    
+    // Establecer el modo de error de PDO para que lance excepciones
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);}
-// else {
-//     echo "Conexion Exitosa a la DB"; // SMS Prueba de Conexion
-// }
+    // echo "Conexión exitosa a la base de datos"; // SMS prueba de conexión
+} catch (PDOException $e) {
+    // Si ocurre un error, lo capturamos y mostramos el mensaje
+    die("Conexión fallida: " . $e->getMessage());
+}
+?>

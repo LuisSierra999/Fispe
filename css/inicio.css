@@ -36,11 +36,11 @@ header div img {
     justify-content: center;
 }
 .img {
+    float:right;
+    border-radius: 250px;
     width: 300px;
     height: 180px;
-    padding-top: 120px;
-    border-radius: 50px;
-    margin: 0 10px;
+    margin: 129px 30px 0px 0px;
 }
 header nav {
     float: right;
@@ -71,7 +71,7 @@ form {
     border-radius: 5px;
     padding: 20px;
     background-color: #BACD47;
-    margin: 30px auto;
+    margin: 30px auto 150px;
     width: 300px;
     justify-content: center;
    
