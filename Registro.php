@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro Fispe</title>
-  <link rel="stylesheet" href="css/Registro.css">
+  <link rel="stylesheet" href="css/registro.css">
   <script src="https://kit.fontawesome.com/bf528d3bda.js" crossorigin="anonymous"></script>
 </head>
 
@@ -17,7 +17,7 @@
               <img src="img/logo.png" alt="logo">
             </a>
         <nav>
-            <a href="Registro.php">Regístrate Aquí</a>
+      
             <a href="inicio.php">Inicio de Sesión</a>
         </nav>
     </div>    
