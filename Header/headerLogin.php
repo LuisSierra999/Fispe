@@ -9,7 +9,7 @@
 <body>
 <header>
         <div class="wrapper">
-            <div class="logo">Bienvenidos a FISPE</div>
+            <div class="logo">Bienvenido usuario</div>
             <img src="img/logo.png" alt="Logo Fispe" width="100"/> 
             <nav>
                 <a href="Bienvenida.php">Bienvenida</a>

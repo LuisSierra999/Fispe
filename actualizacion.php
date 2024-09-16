@@ -6,15 +6,15 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-require 'Conexion.php';
+require 'Conexion.php'; // Asegúrate de que 'Conexion.php' esté configurado para usar PDO
 
 // Obtener los datos actuales del usuario
 $email = $_SESSION['email'];
-$stmt = $conn->prepare('SELECT Nombre, Apellido, Edad, Genero, email FROM users WHERE email = ?');
-$stmt->bind_param('s', $email);
+$sql = 'SELECT Nombre, Apellido, Edad, Genero, email FROM users WHERE email = :email';
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':email', $email);
 $stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -30,9 +30,9 @@ $user = $result->fetch_assoc();
 </head>
 
 <body>
-     <!-- Inicio del header -->
-         <?php include "Header/headerLogin.php"; ?>
-    <!-- fin del header -->
+    <!-- Inicio del header -->
+    <?php include "Header/headerLogin.php"; ?>
+    <!-- Fin del header -->
 
     <div class="contenido">
         <form method="post" action="actualizar.php">
@@ -61,15 +61,13 @@ $user = $result->fetch_assoc();
             <input class="submit delete" type="submit" name="delete" value="Eliminar Cuenta">
         </form>
 
-        <?php if(!empty($message)): ?>
+        <?php if (!empty($message)): ?>
         <div class="sms"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
     </div>
     
     <!-- Pie de Página -->
-    <?php
-        include "Footer/footer.php";
-
-    ?>
+    <?php include "Footer/footer.php"; ?>
 </body>
 </html>
+
