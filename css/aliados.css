@@ -27,3 +27,100 @@
     height: 180px;
 }
 
+
+
+header {
+    width: 100%;
+    overflow: hidden;
+    background-color: #65730D;
+    margin-bottom: 20px;
+    position: sticky;
+}
+.wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+header .logo {
+    color: #f2f2f2;
+    font-size: 30px;
+    line-height: 30px;
+    float: left;
+    margin-top: 5px;
+}
+
+header nav {
+    float: right;
+    line-height: 70px;
+    margin: 0px;
+    height: 0 px;
+
+}
+
+header div img {
+    border-radius: 50px;
+    width: 100px;
+    float: right;
+}
+
+header nav a {
+    display: inline-block;
+    color:#fff;
+    text-decoration: none;
+    padding:10px 20px;
+    line-height: normal;
+    font-size: 17.5 px;
+    font-weight: bold;
+}
+header nav a:hover {
+    background: #BACD47;
+    border-radius: 50px;
+}
+
+/* Estilos para el formulario
+form {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px 10 px;
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #65730D;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #65730D; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #4b512c; 
+}
+
+option {
+
+    background-color: #a9aba0;
+
+}
+ */

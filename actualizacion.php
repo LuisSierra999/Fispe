@@ -31,7 +31,23 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <body>
     <!-- Inicio del header -->
-    <?php include "Header/headerLogin.php"; ?>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                Bienvenido <?php echo htmlspecialchars($user['Nombre']); ?>
+            </div>
+            <img src="img/logo.png" alt="Logo Fispe" width="100"/> 
+            <nav>
+                <a href="Bienvenida.php">Bienvenida</a>
+                <a href="quienesSomos.php">¿Quiénes Somos?</a>
+                <a href="aliados.php">Aliados en Salud</a>
+                <a href="fispe.php">Ficha de Seguimiento</a>
+                <a href="contacto.php">Contacto</a>
+                <a href="actualizacion.php">Actualizar Cuenta</a>
+                <a href="salir.php">Cerrar Sesión</a>
+            </nav>
+        </div>
+    </header>
     <!-- Fin del header -->
 
     <div class="contenido">

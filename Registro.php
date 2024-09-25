@@ -18,7 +18,7 @@
             </a>
         <nav>
       
-            <a href="inicio.php">Inicio de Sesión</a>
+            <a href="inicio.php">Inicio de Cesión</a>
         </nav>
     </div>    
 </header>

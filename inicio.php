@@ -54,7 +54,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
             <a href="index.php">
               <img src="img/logo.png" alt="logo">
             </a>
-            <div class="logo">Inicio de Sesión</div>
+            <div class="logo">Inicio de Cesión</div>
             <nav>
                 <a href="Registro.php">Regístrate Aquí</a>
             </nav>
