@@ -3,7 +3,11 @@ session_start();
 
 // Redirige a la página de bienvenida si ya hay una sesión iniciada
 if (isset($_SESSION["email"])) {
-    header("Location: Bienvenida.php");
+    if ($_SESSION["role_id"] == 1) {
+        header("Location: admin.php");
+    } else {
+        header("Location: Bienvenida.php");
+    }
     exit();
 }
 
@@ -13,7 +17,7 @@ $message = "";
 
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     // Preparar la consulta SQL utilizando placeholders con PDO
-    $stmt = $conn->prepare("SELECT email, password FROM users WHERE email = :email");
+    $stmt = $conn->prepare("SELECT email, password, role_id FROM users WHERE email = :email");
 
     // Vincular el parámetro de email
     $stmt->bindParam(':email', $_POST["email"]);
@@ -27,7 +31,16 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     // Verificar si el usuario existe y si la contraseña es válida
     if ($user && password_verify($_POST["password"], $user["password"])) {
         $_SESSION["email"] = $user["email"];  // Asignar el email del usuario a la sesión
-        header("Location: Bienvenida.php");  // Redirigir a la página de bienvenida
+        $_SESSION["role_id"] = $user["role_id"];  // Asignar el rol del usuario a la sesión
+
+
+
+        // Redirigir según el rol del usuario
+        if ($user["role_id"] == 1) {
+            header("Location: admin.php");  // Si es admin, redirigir a admin.php
+        } else {
+            header("Location: Bienvenida.php");  // Si es cliente, redirigir a Bienvenida.php
+        }
         exit();
     } else {
         $message = "Por Favor Valida los Datos Ingresados"; // Mensaje de error

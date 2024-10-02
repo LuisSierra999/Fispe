@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fispe.css">
     <title>FISPE</title>
+    <script>
+        function abrirVentanaEmergente(){
+            window.open('controlMedico.php','popup','width=800,height=600');
+        }
+    </script>
     <script src="https://kit.fontawesome.com/bf528d3bda.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,7 +20,7 @@
         <article class="post">
             <h1>Controles Médicos</h1>
             <p>Ingresa datos importantes durante la consulta médica</p>
-            <img src="img/control_medico.png"/>
+            <img src="img/control_medico.png" onclick="abrirVentanaEmergente()"/>
             <ul>
                 <li>Presión Arterial</li>
                 <li>Talla</li>
