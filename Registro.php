@@ -18,7 +18,7 @@
             </a>
         <nav>
       
-            <a href="inicio.php">Inicio de Cesión</a>
+            <a href="inicio.php">Inicio de Sesión</a>
         </nav>
     </div>    
 </header>
@@ -58,10 +58,10 @@
 
     <?php
 
-include 'Conexion.php'; // Asegúrate de que 'Conexion.php' esté configurado para usar PDO
+include 'Conexion.php'; // Conexion a la DB
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir datos iniciales
+    // Recibir datos 
     $Nombre = $_POST['Nombre'];
     $Apellido = $_POST['Apellido'];
     $email = $_POST['email'];
@@ -69,31 +69,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Genero = $_POST['Genero'];
     $password = $_POST['password']; 
 
-    // Compara que la contraseña ingresada = a la contraseña confirmada
+    // Confirma contraseña
     if ($password !== $_POST['confirm_password']) {
         die("<div class='sms'>La Contraseña No Coincide</div>");
     }
 
-    // Encripta la contraseña antes de almacenarla
+    // Encripta la contraseña
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Ingresa el registro en la DB usando PDO
-    $sql = "INSERT INTO users (Nombre, Apellido, email, Edad, Genero, password) 
+    // Verificar si el correo ya está registrado
+    $sql_check_email = "SELECT * FROM users WHERE email = :email";
+    $stmt_check = $conn->prepare($sql_check_email);
+    $stmt_check->bindParam(':email', $email);
+    $stmt_check->execute();
+    
+    // sms si ya esta registrado
+    if ($stmt_check->rowCount() > 0) {
+        die("<div class='sms'>El usuario ya está registrado </div>");
+    }
+
+    // Ingreso del registro a la DB
+    $sql_insert = "INSERT INTO users (Nombre, Apellido, email, Edad, Genero, password) 
             VALUES (:Nombre, :Apellido, :email, :Edad, :Genero, :password)";
 
     try {
-        $stmt = $conn->prepare($sql);
+        $stmt_insert = $conn->prepare($sql_insert);
 
-        // Vincular los parámetros con los valores recibidos del formulario
-        $stmt->bindParam(':Nombre', $Nombre);
-        $stmt->bindParam(':Apellido', $Apellido);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':Edad', $Edad);
-        $stmt->bindParam(':Genero', $Genero);
-        $stmt->bindParam(':password', $hashed_password);
+        // Vincular  parámetros del formulario
+        $stmt_insert->bindParam(':Nombre', $Nombre);
+        $stmt_insert->bindParam(':Apellido', $Apellido);
+        $stmt_insert->bindParam(':email', $email);
+        $stmt_insert->bindParam(':Edad', $Edad);
+        $stmt_insert->bindParam(':Genero', $Genero);
+        $stmt_insert->bindParam(':password', $hashed_password);
 
         // Ejecutar la consulta
-        if ($stmt->execute()) {
+        if ($stmt_insert->execute()) {
             echo "<div class='sms'>Registro exitoso</div>"; // Mensaje exitoso
         } else {
             echo "<div class='sms'>Error al registrar el usuario</div>"; // Mensaje de error
@@ -106,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = null;
 }
 ?>
+
 
 
   <!--Pie de Página-->
