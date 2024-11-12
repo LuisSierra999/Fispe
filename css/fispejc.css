@@ -1,0 +1,60 @@
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-info span {
+    font-weight: bold;      
+    font-size: 24px; 
+    color: #000000;
+}
+
+.user-info p {
+    font-weight: bold;    
+    font-size: 28px;       
+    margin: 0;            
+    color: #333333;       
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    margin-right: 60px;
+}
+
+section {
+    display: flex;                  
+    gap: 20px;                     
+    justify-content: space-around; 
+    padding: 40px;                  
+    flex-wrap: wrap;                
+}
+
+section div {
+    width: 250px;                   
+    background-color: #ffffff;     
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px;             
+    overflow: hidden;               
+    text-align: center;            
+    padding: 10px;  
+    transition: border 0.8s ease;                
+}
+
+section div:hover {
+    box-shadow: 0 4px 16px #BACD47; 
+}
+
+section div img {
+    width: 100%;                    
+    height: auto;                   
+    border-bottom: 1px solid #ddd;  
+}
+
+section div p {
+    padding: 10px;                  
+    font-size: 16px;               
+    color: #000000;                   
+}

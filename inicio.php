@@ -17,7 +17,7 @@ $message = "";
 
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     // Preparar la consulta SQL utilizando placeholders con PDO
-    $stmt = $conn->prepare("SELECT email, password, role_id FROM users WHERE email = :email");
+    $stmt = $conn->prepare("SELECT user_id, email, password, role_id FROM users WHERE email = :email");
 
     // Vincular el parámetro de email
     $stmt->bindParam(':email', $_POST["email"]);
@@ -30,10 +30,11 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
     // Verificar si el usuario existe y si la contraseña es válida
     if ($user && password_verify($_POST["password"], $user["password"])) {
-        $_SESSION["email"] = $user["email"];  // Asignar el email del usuario a la sesión
+        $_SESSION["user_id"] = $user["user_id"];  // Asignar el ID del usuario a la sesión
+   
+       
+        $_SESSION["email"] = $user["email"];      // Asignar el email del usuario a la sesión
         $_SESSION["role_id"] = $user["role_id"];  // Asignar el rol del usuario a la sesión
-
-
 
         // Redirigir según el rol del usuario
         if ($user["role_id"] == 1) {
@@ -47,6 +48,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>

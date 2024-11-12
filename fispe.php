@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/fispe.css">
     <title>FISPE</title>
-    <script>
-        function abrirVentanaEmergente(){
-            window.open('controlMedico.php','popup','width=800,height=600');
-        }
-    </script>
+
     <script src="https://kit.fontawesome.com/bf528d3bda.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -20,44 +16,31 @@
         <article class="post">
             <h1>Controles Médicos</h1>
             <p>Ingresa datos importantes durante la consulta médica</p>
-            <img src="img/control_medico.png" onclick="abrirVentanaEmergente()"/>
-            <ul>
-                <li>Presión Arterial</li>
-                <li>Talla</li>
-                <li>Peso</li>
-                <li>Glicemia</li>
-            </ul>
+
+            <a href="crear_control_medico.php">
+            <img src="img/control_medico.png" alt="Descipcion" ></a>
         </article>
         <br>
         <article class="post">
             <h2>Vacunas</h2>
             <p>Un archivo histórico con fechas y nombres de la aplicación</p>
-            <img src="img/vacunas.png"/>
-            <ul>
-                <li>Listado Actulizado de Vacunas</li>
-                <li>Recomendación de aplicación (esquema de vacunación)</li>
-            </ul>
+            <a href="crear_vacuna.php">
+            <img src="img/vacunas.png" alt="Descipcion" ></a>
             <br>
         </article>
         <article class="post">
             <h2>Medicamentos</h2>
             <p>Registro detallado del medicamento, inicio del tratamiento, recordatorios</p>
-            <img src="img/medicamentos.png"/>
-            <ul>
-                <li>Listado Actulizado de Medicamentos</li>
-                <!-- <li>Recordatorios de administración de medicamentos</li> -->
-            </ul>
+            <a href="crear_medicamento.php">
+            <img src="img/medicamentos.png"/> </a>
+
             <br>
         </article>
         <article class="post">
             <h2>¡Un Archivo para Compartir!</h2>
             <p>Comparte con tus familiares y Médicos tratantes informes detallados (históricos)</p>
-            <img src="img/descargar.png"/>
-            <ul>
-                <li>Actualizar datos</li>
-                <li>Compartir y/o descargar la ficha de seguimiento personal en salud</li>
-                <li>Informe con curvas de seguimiento de los diferentes parámetros registrados (Presión Arterial, Glicemia, Talla, Peso, IMC, etc).</li>
-            </ul>
+            <a href="generar_pdf.php"><img src="img/descargar.png"/></a>
+
             <br>
             <img src="img/curva.png"/>
         </article>
@@ -71,3 +54,5 @@
 </body>
 
 </html>
+
+generar_pdf.php
