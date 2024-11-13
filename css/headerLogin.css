@@ -4,13 +4,13 @@ header {
     width: 100%;
     overflow: hidden;
     background-color: #65730D;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: sticky;
 }
 .wrapper {
     width: 90%;
     max-width: 1200px;
-    margin: auto;
+    margin: 12px;
     overflow: hidden;
 }
 header .logo {
@@ -39,7 +39,7 @@ header nav a {
     display: inline-block;
     color:#fff;
     text-decoration: none;
-    padding:10px 20px;
+    padding:10px 15px;
     line-height: normal;
     font-size: 17.5 px;
     font-weight: bold;

@@ -42,7 +42,7 @@
             <a href="generar_pdf.php"><img src="img/descargar.png"/></a>
 
             <br>
-            <img src="img/curva.png"/>
+            <!-- <img src="img/curva.png"/> -->
         </article>
     </section>
     <br>
