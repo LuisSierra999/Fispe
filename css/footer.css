@@ -20,7 +20,7 @@
     justify-content: center;
     align-items: center;
 }
-.pie_pagina .grupo_1 .box figure img{
+.pie_pagina .grupo_1 .box figure img{w
     width: 100px;
     height: 100px;
     background-size: cover;
@@ -59,11 +59,11 @@
     color: #000000;
 }
 
-@media screen and (max-width:800px) {
+/* @media screen and (max-width:800px) {
     .pie_pagina .grupo_1{
         width: 90%;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 30px;
         padding: 35px 0px;
     }
-}
+} */

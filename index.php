@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" href="css/headerLogin.css">
+    <link rel="stylesheet" href="css/index.css">
     <script src="https://kit.fontawesome.com/bf528d3bda.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -31,7 +31,7 @@
                 <img src="img/aliadosalud.png"/>
                 <img src="img/medi2.jpg"/>
             </article>
-            <br>
+            
             <article class="post">
                 <h2>Convenios con importantes EPS y IPS de la región</h2>
                 <p>Una herramienta de ayuda para el personal de salud, brindando información relevante del paciente.</p>

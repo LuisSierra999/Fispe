@@ -1,18 +1,20 @@
 /*Completo*/
 body {
     font-family: "Arial Narrow";
-    font-size: 1.0rem;
+    font-size: 16px;
     line-height: 1.3em;
     margin: 0;
 }
 header {
     width: 100%;
-    background-color: #65730D;
+    background-color: #F0F0F0;
     margin-bottom: 20px;
-    position: fixed;
+    position: sticky;
     left: 0;
     top: 0;
     right: 0;
+    border-bottom: 2px solid #BACD47;
+
 }
 .wrapper {
     width: 90%;
@@ -21,7 +23,7 @@ header {
     overflow: hidden;
 }
 header .logo{
-    color:#f2f2f2;
+    color:#000000;
     font-size: 50px;
     line-height: 100px;
     float: left;
@@ -48,7 +50,7 @@ header nav {
 }
 header nav a {
     display: inline-block;
-    color:#fff;
+    color:#000000;
     text-decoration: none;
     padding:10px 10px;
     line-height: normal;
@@ -70,21 +72,23 @@ header nav a:hover {
 form {
     border-radius: 5px;
     padding: 20px;
-    background-color: #BACD47;
+    background-color: #bfcb7a;
     margin: 30px auto 150px;
     width: 300px;
-    justify-content: center;
+    height: 300px;
+    text-align: center;
    
 }
 input, text {
     outline: none;
-    color: #65730D;
+    color: #000000;
     background-color: #f2f2f2;
     border-radius: 5px;
     border: solid 3px #65730D;
     margin-bottom: 20px;
+    margin-top: 15px;
     width: 250px;
-    justify-content: center;
+    text-align: center;
 }
 .field {
     border: solid 3px #65730D;
@@ -106,5 +110,6 @@ p {
     border-top-left-radius: 3px;
 
 }
+
 
 

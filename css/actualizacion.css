@@ -62,7 +62,7 @@ input, text {
 }
 
 .sms {
-    background-color: #65730D;
+    background-color: #6e7547;
     color: #ffffff;
     padding: 10px;
     border: 1px solid #d6e9c6;
@@ -77,11 +77,15 @@ input, text {
 
 header {
     width: 100%;
-    overflow: hidden;
-    background-color: #65730D;
+    background-color: #F0F0F0;
     margin-bottom: 20px;
     position: sticky;
-}
+    left: 0;
+    top: 0;
+    right: 0;
+    border-bottom: 2px solid #BACD47;}
+
+
 .wrapper {
     width: 90%;
     max-width: 1200px;
@@ -112,7 +116,7 @@ header div img {
 
 header nav a {
     display: inline-block;
-    color:#fff;
+    color:#000000;
     text-decoration: none;
     padding:10px 20px;
     line-height: normal;

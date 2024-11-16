@@ -45,23 +45,24 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Control Médico</title>
-    <link rel="stylesheet" href="css/fispejc.css">
+    <link rel="stylesheet" href="css/Crear_registros.css">
 </head>
-<body>
 
 <header>
     <?php include "Header/headerLogin.php"; ?>
 </header>
 
+<body>
+
+
 <main>
     <!-- Mostrar mensaje de éxito o error -->
-    <?php if (!empty($message)): ?>
-        <p><?php echo htmlspecialchars($message); ?></p>
-    <?php endif; ?>
+
 
     <!-- Formulario de registro de control médico -->
+     
     <form action="crear_control_medico.php" method="POST">
-        <label for="presion_arterial">Presión Arterial:</label>
+        <label for="presion_arterial">Presión Arterial:</label><br>
         <input type="text" name="presion_arterial" id="presion_arterial" required>
 
         <label for="talla">Talla (m):</label>
@@ -81,10 +82,17 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 
         <button type="submit">Registrar Control Médico</button>
     </form>
+
+    <?php if (!empty($message)): ?>
+        <p><?php echo htmlspecialchars($message); ?></p>
+    <?php endif; ?>
+    
 </main>
 
+
+
+</body>
 <!--Pie de Página-->
 <?php include "Footer/footer.php"; ?>
 
-</body>
 </html>

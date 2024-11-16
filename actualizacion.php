@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-require 'Conexion.php'; // Asegúrate de que 'Conexion.php' esté configurado para usar PDO
+require 'Conexion.php'; 
 
 // Obtener los datos actuales del usuario
 $email = $_SESSION['email'];

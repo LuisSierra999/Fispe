@@ -1,7 +1,7 @@
 <?php
-require 'Conexion.php'; // Asegúrate de que la conexión a la base de datos esté funcionando correctamente
+require 'Conexion.php'; 
 
-// Obtener los filtros seleccionados por el usuario
+//  filtros
 $convenio = isset($_GET['convenio']) ? $_GET['convenio'] : '';
 $horario = isset($_GET['horario']) ? $_GET['horario'] : '';
 $especialidad = isset($_GET['especialidad']) ? $_GET['especialidad'] : '';
@@ -57,7 +57,7 @@ $centros = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- fin del header -->
 
     <section class="contenido wrapper">
-        <form method="GET" action="Aliados.php">
+        <form method="GET" action="aliados.php">
             <label for="convenio">Convenio:</label>
             <select name="convenio">
                 <option value="Todos">Todos</option>
@@ -90,7 +90,7 @@ $centros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <option value="Salud Preventiva">Salud Preventiva</option>
                 <option value="Odontología">Odontología</option>
                 <option value="Laboratorios">Laboratorios</option>
-                <!-- Agrega más especialidades según tu base de datos -->
+                <!-- especialidades según tu base de datos -->
             </select>
 
             <button type="submit">Filtrar</button>

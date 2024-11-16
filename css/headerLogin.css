@@ -2,10 +2,13 @@
 
 header {
     width: 100%;
-    overflow: hidden;
-    background-color: #65730D;
-    margin-bottom: 10px;
+    background-color: #F0F0F0;
+    margin-bottom: 20px;
     position: sticky;
+    left: 0;
+    top: 0;
+    right: 0;
+    border-bottom: 2px solid #BACD47;
 }
 .wrapper {
     width: 90%;
@@ -14,7 +17,7 @@ header {
     overflow: hidden;
 }
 header .logo {
-    color: #f2f2f2;
+    color: #000000;
     font-size: 30px;
     line-height: 30px;
     float: left;
@@ -37,7 +40,7 @@ header div img {
 
 header nav a {
     display: inline-block;
-    color:#fff;
+    color:#000000;
     text-decoration: none;
     padding:10px 15px;
     line-height: normal;

@@ -54,5 +54,3 @@
 </body>
 
 </html>
-
-generar_pdf.php

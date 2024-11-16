@@ -1,5 +1,5 @@
 <?php
-require "Conexion.php"; // Asegúrate de que el archivo de conexión esté presente
+require "Conexion.php"; 
 
 $message = '';
 
